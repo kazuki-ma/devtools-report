@@ -1,0 +1,32 @@
+group 'spring-boot-bug'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'war'
+apply plugin: 'spring-boot'
+
+targetCompatibility = 1.8
+sourceCompatibility = 1.8
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.1.RELEASE")
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.springframework.boot:spring-boot-actuator:1.4.1.RELEASE'
+    compile 'org.springframework.boot:spring-boot-devtools:1.4.1.RELEASE'
+    compile 'org.springframework.boot:spring-boot-starter-thymeleaf:1.4.1.RELEASE'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.14.1'
+}
